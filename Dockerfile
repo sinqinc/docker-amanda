@@ -15,6 +15,12 @@ RUN dpkg -i /amanda-backup-client_3.3.9-1Ubuntu1404_amd64.deb
 ADD amanda-security.conf /etc/amanda-security.conf
 RUN chmod 644 /etc/amanda-security.conf
 
+RUN touch /var/amanda/amandates
+RUN chown amandabackup:disk /var/amanda/amandates
+RUN touch /var/amanda/dumpdates
+RUN chmod 664 /var/amanda/dumpdates
+RUN chgrp disk /var/amanda/dumpdates
+
 CMD ["bash", "-c", "/etc/init.d/xinetd start;sleep infinity;"]
 EXPOSE 10080
 USER amandabackup
