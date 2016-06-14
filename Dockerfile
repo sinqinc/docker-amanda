@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install -q -y language-pack-en
 RUN update-locale LANG=en_US.UTF-8
 
-RUN apt-get -y install wget sudo bzip2 xinetd curl libglib2.0-0
+RUN apt-get -y install wget sudo bzip2 xinetd curl libglib2.0-0 gettext
 RUN service xinetd restart
 RUN update-rc.d xinetd defaults
 
