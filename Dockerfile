@@ -14,6 +14,6 @@ ADD amanda-backup-client_3.3.9-1Ubuntu1404_amd64.deb /amanda-backup-client_3.3.9
 RUN dpkg -i /amanda-backup-client_3.3.9-1Ubuntu1404_amd64.deb 
 ADD amanda-start /amanda-start
 
-CMD ["/amanda-start"]
+CMD ["/usr/sbin/xinetd", "-dontfork"]
 EXPOSE 10080
 USER amandabackup
